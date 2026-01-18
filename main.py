@@ -9,7 +9,7 @@ import sys
 
 
 
-TOKEN = os.environ.get('TELEGRAM_TOKEN') #8200923899:AAHbGg7YpnHF7VFSzWEA-TXyhT6MLAMcS6U        sk-88c71385b6594cfa8a35810243dcecd8
+TOKEN = os.environ.get('TELEGRAM_TOKEN') 
 bot = telebot.TeleBot(TOKEN)
 DEEPSEEK_API_KEY = os.environ.get('DEEPSEEK_API_KEY')
 MAX_TOKENS = 256 #1 СИМВОЛ 0.3 ТОКЕНА
@@ -306,4 +306,5 @@ if __name__ == '__main__':
         debug=False,
         use_reloader=False
     )
+
 

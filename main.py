@@ -55,7 +55,7 @@ def deepseekQuestion(question):
         "messages": [
             {
                 "role": "system",
-                "content": "Ты полезный помощник. Отвечай максимально кратко и по делу. Ограничь ответ 3-4 предложениями."
+                "content": "Ты полезный помощник. Отвечай максимально кратко и по делу. Помогай пользователю решить его вопросы или узнать что-то новое."
             },
             {
                 "role": "user",
@@ -88,12 +88,10 @@ def deepseekQuestion(question):
 @bot.message_handler(commands=["start"])
 def start(message):
     welcome_text = """ Привет! Я AI-помощник на базе DeepSeek.
+    Помогу решить твои вопросы или узнать что-то новое.
     Как использовать:
-    • Просто напиши мне вопрос
-    • Или используй команду /ai <вопрос>
-    Ответы будут краткими и по делу
-    Лимит: 10 вопросов в день
-    Задавай свой вопрос!"""
+    Напиши мне вопрос в формате /ai <твой вопрос>
+    Максимум 10 запросов в день"""
     bot.send_message(message.chat.id, welcome_text)
 
 @bot.message_handler(commands=['ai'])
@@ -306,5 +304,6 @@ if __name__ == '__main__':
         debug=False,
         use_reloader=False
     )
+
 
 

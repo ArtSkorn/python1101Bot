@@ -91,7 +91,8 @@ def start(message):
     Помогу решить твои вопросы или узнать что-то новое.
     Как использовать:
     Напиши мне вопрос в формате /ai <твой вопрос>
-    Максимум 10 запросов в день"""
+    Максимум 10 запросов в день
+    Сайт со статистикой: https://python1101bot.onrender.com"""
     bot.send_message(message.chat.id, welcome_text)
 
 @bot.message_handler(commands=['ai'])
@@ -126,22 +127,24 @@ def deepseekSearch(message):
 # ========== FLASK СЕРВЕР ==========
 HTML_TEMPLATE = '''
 <!DOCTYPE html>
+
 <html>
 <head>
-    <title>🤖 Telegram Bot</title>
+    <title>Telegram Bot</title>
     <meta http-equiv="refresh" content="300">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
         body { 
-            font-family: Arial, sans-serif; 
+            font-family: 'Roboto Mono', monospace; 
             max-width: 800px; 
             margin: 50px auto; 
             padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #000000;
             color: white;
             text-align: center;
         }
         .container {
-            background: rgba(255, 255, 255, 0.1);
+            background-color: #1a1a1a;
             padding: 30px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
@@ -156,9 +159,9 @@ HTML_TEMPLATE = '''
             border-radius: 10px;
             font-weight: bold;
         }
-        .online { background: #4CAF50; }
+        .online { background: #5e5e5e; }
         .stats { 
-            background: rgba(255, 255, 255, 0.2); 
+            background: #000000; 
             padding: 15px; 
             border-radius: 10px;
             margin: 20px 0;
@@ -166,8 +169,8 @@ HTML_TEMPLATE = '''
         .btn {
             display: inline-block;
             padding: 12px 24px;
-            background: white;
-            color: #667eea;
+            background: #696969;
+            color: #d6d6d6;
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
@@ -181,23 +184,23 @@ HTML_TEMPLATE = '''
 </head>
 <body>
     <div class="container">
-        <h1>🤖 Telegram Bot</h1>
-        <p>Бот работает в режиме polling + Flask</p>
+        <h1>Telegram Bot</h1>
+        <p>The bot works in polling mode + Flask</p>
 
         <div class="status online">
-            ✅ СТАТУС: ОНЛАЙН
+            STATUS: ONLINE
         </div>
 
         <div class="stats">
-            <p>🕒 Время сервера: {{ time }}</p>
-            <p>👤 Пользователей сегодня: {{ users_today }}</p>
-            <p>📊 Всего запросов сегодня: {{ total_requests }}</p>
-            <p>⏰ Автообновление: каждые 5 минут</p>
+            <p>Server time: {{ time }}</p>
+            <p>Users today: {{ users_today }}</p>
+            <p>Total requests today: {{ total_requests }}</p>
+            <p>Auto-refresh: every 5 minutes</p>
         </div>
 
         <p>
             <a href="https://t.me/{{ bot_username }}" class="btn" target="_blank">
-                💬 Написать боту
+                Write to the bot
             </a>
         </p>
     </div>
@@ -304,6 +307,7 @@ if __name__ == '__main__':
         debug=False,
         use_reloader=False
     )
+
 
 
 
